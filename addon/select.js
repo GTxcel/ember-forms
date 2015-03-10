@@ -1,6 +1,7 @@
 import Em from 'ember';
 import FormGroupComponent from './group';
 import ControlMixin from 'ember-idx-forms/mixins/control';
+import Utils from 'ember-idx-forms/utils/utils';
 
 /*
 Form Select
@@ -30,7 +31,8 @@ export default FormGroupComponent.extend({
   prompt: void 0,
   controlWrapper: (function() {
     if (this.get('form.form_layout') === 'horizontal') {
-      return 'col-sm-10';
+      return Utils.getFormsColsClass(this.get('form.form_layout_columns'), "left", "false");
+//      return 'col-sm-10';
     }
     return null;
   }).property('form.form_layout')

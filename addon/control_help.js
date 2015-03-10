@@ -1,5 +1,6 @@
 import Em from 'ember';
 import InFormMixin from 'ember-idx-forms/mixins/in_form';
+import Utils from 'ember-idx-forms/utils/utils';
 
 /*
 Form Control Help
@@ -20,7 +21,8 @@ export default Em.Component.extend(InFormMixin, {
   horiClass: 'col-sm-offset-2 col-sm-10',
   horiClassCalc: (function() {
     if (this.get('form.isHorizontal') && this.get('horiClass')) {
-      return this.get('horiClass');
+      return Utils.getFormsColsClass(this.get('form.form_layout_columns'), "right", "true");
+//      return this.get('horiClass');
     }
   }).property('form.isHorizontal'),
   init: function() {

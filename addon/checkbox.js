@@ -2,6 +2,7 @@ import Em from 'ember';
 import FormGroupComponent from './group';
 import FormCheckboxComponent from './checkbox';
 import ControlMixin from 'ember-idx-forms/mixins/control';
+import Utils from 'ember-idx-forms/utils/utils';
 
 /*
 Form Input
@@ -24,7 +25,8 @@ export default FormGroupComponent.extend({
   }),
   wrapperClass: (function() {
     if (this.get('form.form_layout') === 'horizontal') {
-      return 'col-sm-offset-2 col-sm-10';
+      return Utils.getFormsColsClass(this.get('form.form_layout_columns'), "right", "true");
+//      return 'col-sm-offset-2 col-sm-10';
     }
   }).property('form.form_layout'),
   labelWrapperClass: (function() {
